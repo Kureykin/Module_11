@@ -2,32 +2,22 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class NumberSorter {
 
-    private ArrayList<Integer> toIntArray(String[] texts) {
-
-        ArrayList<Integer> nums = new ArrayList<>();
-        int tmp;
-
-        for(String text: texts) {
-            tmp = 0;
-            for (int i = 0; i < text.length(); i++) {
-                if(text.charAt(i) >= 48 && text.charAt(i) <= 57) {
-                    nums.add(text.charAt(i) - 48);
-                }
-            }
-        }
-
-        return nums;
-    }
-
     public String sorted(String[] nums) {
-        Stream<Integer> numStream = toIntArray(nums).stream().sorted();
 
-        Object[] result = numStream.toArray();
+        String tmp = Arrays.toString(nums);
 
-        return Arrays.toString(result);
+        Stream<Character> numStream = IntStream.range(0, tmp.length())
+                                                .filter(index -> tmp.charAt(index) >= 48 && tmp.charAt(index) <= 57)
+                                                .mapToObj(tmp::charAt)
+                                                .sorted();
+
+        return Arrays.toString(numStream.toArray());
     }
 }
