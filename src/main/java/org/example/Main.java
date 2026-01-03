@@ -16,11 +16,11 @@ public class Main {
 
         System.out.println(new NameSorter().sorted(nameList).toString());
 
-        System.out.println(new NumberSorter().sorted(new String[] {"1,2,0", "4,5"}));
+        System.out.println(new NumberSorter().sorted(new String[] {"1,22,0", "4,15"}));
 
         Stream<Long> rand = new RandNums().rannd(25214903917L, 11L, 1L << 48);
 
-        System.out.println(Arrays.toString(zip(Stream.of(1,2,3,4), Stream.of(1,2)).toArray()));
+        System.out.println(Arrays.toString(zip(Stream.of(1,2,3,4), Stream.of(7,9)).toArray()));
 
 
 
