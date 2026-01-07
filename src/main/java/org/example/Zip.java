@@ -13,7 +13,7 @@ public class Zip {
         ListIterator<T> secondList = second.toList().listIterator();
 
 
-        return IntStream.range(0, 100).mapToObj(i -> {
+        return IntStream.iterate(0, i -> i + 1).mapToObj(i -> {
                if(firstList.hasNext() && secondList.hasNext()) {
                   return i % 2 == 0 ? firstList.next(): secondList.next();
                }
